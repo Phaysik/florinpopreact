@@ -3,7 +3,7 @@
  * @author Matthew Moore
  * @module Bin2Dec
  * @since 1.0.0
- * @version 1.0.0
+ * @version 2.0.0
  */
 
 import React from 'react';
@@ -75,12 +75,12 @@ const processInput = (input: string): void => {
  * @function Bin2Dec
  * @returns {JSX}
  * @since 1.0.0
- * @version 1.0.0
+ * @version 2.0.0
  */
 export const Bin2Dec = (): JSX => {
 	return (
 		<div id="bin2dec" data-testid="bin2dec">
-			<Helmet title="Bin2Dec" />
+			<Helmet title="Binary to Decimal" />
 			<Home />
 
 			<div id="userinput">

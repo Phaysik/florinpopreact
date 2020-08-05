@@ -1,18 +1,27 @@
 import React from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import { Bin2Dec } from '../../components/Bin2Dec/Bin2Dec';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 beforeEach(cleanup);
 
 describe('<Bin2Dec />', () => {
-	it('Renders the application', () => {
-		const { queryByTestId } = render(<Bin2Dec />);
+	it('Renders the component', () => {
+		const { queryByTestId } = render(
+			<Router>
+				<Bin2Dec />
+			</Router>
+		);
 
 		expect(queryByTestId('bin2dec')).toBeTruthy();
 	});
 
 	it('UserInput OnChange Event', () => {
-		const { queryByTestId } = render(<Bin2Dec />);
+		const { queryByTestId } = render(
+			<Router>
+				<Bin2Dec />
+			</Router>
+		);
 
 		expect(queryByTestId('bin2dec')).toBeTruthy();
 
@@ -28,7 +37,11 @@ describe('<Bin2Dec />', () => {
 	});
 
 	it('Check Result has appropriate values', () => {
-		const { queryByTestId } = render(<Bin2Dec />);
+		const { queryByTestId } = render(
+			<Router>
+				<Bin2Dec />
+			</Router>
+		);
 
 		expect(queryByTestId('bin2dec')).toBeTruthy();
 
@@ -46,7 +59,11 @@ describe('<Bin2Dec />', () => {
 	});
 
 	it('Check if result exists', () => {
-		const { queryByTestId } = render(<Bin2Dec />);
+		const { queryByTestId } = render(
+			<Router>
+				<Bin2Dec />
+			</Router>
+		);
 
 		expect(queryByTestId('bin2dec')).toBeTruthy();
 

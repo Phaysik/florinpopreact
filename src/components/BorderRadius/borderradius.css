@@ -1,0 +1,52 @@
+#borderradius {
+    margin: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "home home"
+        "userInteraction userInteraction"
+        "preview preview"
+}
+
+#input {
+    padding: .6rem 1.6rem;
+    font-size: 1.2rem;
+    width: 17rem;
+    border-right: none;
+}
+
+#copy {
+    padding: .6rem 1.6rem;
+    font-size: 1.2rem;
+    color: #fc7979;
+    background-color: #d6d6d6;
+    font-weight: bold;
+}
+
+#preview {
+    grid-area: preview;
+    height: 20rem;
+    width: 50%;
+    justify-self: center;
+    border: 1px solid black;
+}
+
+#userInteraction {
+    margin: 1rem 0;
+    grid-area: userInteraction;
+    justify-self: center;
+}
+
+h1#head {
+    text-align: center;
+}
+
+#topleft {
+    border: 1px solid black;
+    width: .6rem;
+    height: .6rem;
+    position: relative;
+    right: .3rem;
+    background: #b4e5f7;
+}
