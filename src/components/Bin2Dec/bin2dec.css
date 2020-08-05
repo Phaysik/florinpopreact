@@ -1,0 +1,52 @@
+#bin2dec {
+    margin: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "home home"
+        "userinput result";
+}
+
+textarea {
+    resize: none;
+    height: 25rem;
+    width: 25rem;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+}
+
+#userinput {
+    grid-area: userinput;
+    justify-self: center;
+}
+
+#result {
+    grid-area: result;
+    justify-self: center;
+}
+
+h1.title {
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    textarea {
+        height: 9rem;
+        width: 9rem;
+    }
+}
+
+@media (max-width: 400px) {
+    textarea {
+        height: 8rem;
+        width: 8rem;
+    }
+}
+
+@media (max-width: 350px) {
+    textarea {
+        height: 6rem;
+        width: 6rem;
+    }
+}
