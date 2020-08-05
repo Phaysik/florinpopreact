@@ -3,7 +3,7 @@
  * @author Matthew Moore
  * @module Bin2Dec
  * @since 2.0.0
- * @version 2.0.0
+ * @version 2.0.5
  */
 
 import React from 'react';
@@ -59,13 +59,12 @@ const changeRadius = (element: HTMLElement | null): void => {
  * @function copyText
  * @returns {void}
  * @since 2.0.0
- * @version 2.0.0
+ * @version 2.0.5
  */
 const copyText = (element: HTMLElement | null): void => {
-	const value: string = (element as HTMLInputElement).value.replace(
-		/%|\//g,
-		''
-	);
+	const input: HTMLElement | null = document.getElementById('input');
+
+	const value: string = (input as HTMLInputElement).value.replace(/%|\//g, '');
 
 	const split: string[] = value
 		.split(' ')
@@ -75,7 +74,7 @@ const copyText = (element: HTMLElement | null): void => {
 	el.value =
 		'border-radius: ' +
 		split.slice(0, split.length / 2).join('% ') +
-		' / ' +
+		'% / ' +
 		split.slice(split.length / 2).join('% ') +
 		'%;';
 	el.setAttribute('readonly', '');
@@ -83,6 +82,7 @@ const copyText = (element: HTMLElement | null): void => {
 	el.style.left = '-9999px';
 	document.body.appendChild(el);
 	el.select();
+	document.execCommand('copy');
 	document.body.removeChild(el);
 
 	(element as HTMLInputElement).textContent = 'Copied!';
@@ -90,8 +90,6 @@ const copyText = (element: HTMLElement | null): void => {
 	setTimeout(() => {
 		(element as HTMLInputElement).textContent = 'Copy';
 	}, 1000);
-
-	document.execCommand('copy');
 };
 
 /**
