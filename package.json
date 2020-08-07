@@ -1,6 +1,6 @@
 {
   "name": "florinpopreact",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "private": true,
   "dependencies": {
     "@types/jest": "^24.0.0",
@@ -12,7 +12,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "react-native-fs": "^2.16.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "typescript": "^3.9.7"
