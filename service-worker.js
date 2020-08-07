@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/florinpopreact/precache-manifest.bafdc96865f7a32f74c3f167db3f9ca7.js"
+  "/florinpopreact/precache-manifest.1bcde3caa79a5c0994ec0a49e02d781f.js"
 );
 
 self.addEventListener('message', (event) => {
