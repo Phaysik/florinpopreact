@@ -3,13 +3,14 @@
  * @author Matthew Moore
  * @module Router
  * @since 1.0.0
- * @version 2.0.0
+ * @version 3.0.0
  */
 
 import React from 'react';
 import { BrowserRouter as Routes, Switch, Route } from 'react-router-dom';
 import { Bin2Dec } from '../Bin2Dec/Bin2Dec';
 import { BorderRadius } from '../BorderRadius/BorderRadius';
+import { ProjectDisplay } from '../ProjectDisplay/ProjectDisplay';
 import { JSX } from '../../types/types';
 
 /**
@@ -18,14 +19,14 @@ import { JSX } from '../../types/types';
  * @function Router
  * @returns {JSX}
  * @since 1.0.0
- * @version 2.0.0
+ * @version 3.0.0
  */
 export const Router = (): JSX => {
 	return (
 		<Routes>
 			<Switch>
 				<Route exact path="/">
-					<h1>Home</h1>
+					<ProjectDisplay />
 				</Route>
 
 				<Route path="/bin2dec">

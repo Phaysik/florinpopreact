@@ -1,0 +1,36 @@
+#projectDisplay {
+    margin: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+}
+
+h1#displayTitle {
+    text-align: center;
+}
+
+#projectLinks {
+    margin: 2rem;
+}
+
+#projectDisplay a {
+    text-decoration: none;
+}
+
+.projectBox {
+    height: 15rem;
+    border: 1px solid black;
+    color: #4c4040;
+    padding: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 10%;
+    transition-property: font-size, color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}
+
+.projectBox:hover {
+    color: #869ef4;
+    font-size: 2.1rem;
+}

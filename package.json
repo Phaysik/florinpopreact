@@ -1,6 +1,6 @@
 {
   "name": "florinpopreact",
-  "version": "2.0.5",
+  "version": "3.0.0",
   "private": true,
   "dependencies": {
     "@types/jest": "^24.0.0",
@@ -12,6 +12,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
+    "react-native-fs": "^2.16.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "typescript": "^3.9.7"
@@ -45,7 +46,6 @@
     "@testing-library/react": "^10.4.7",
     "@testing-library/user-event": "^12.1.0",
     "better-docs": "^2.3.0",
-    "identity-obj-proxy": "^3.0.0",
     "jsdoc": "^3.6.5",
     "live-server": "^1.2.1",
     "ts-jest": "^26.1.4"

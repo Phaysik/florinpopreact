@@ -3,7 +3,7 @@
  * @author Matthew Moore
  * @module Bin2Dec
  * @since 1.0.0
- * @version 2.0.0
+ * @version 3.0.0
  */
 
 import React from 'react';
@@ -75,7 +75,7 @@ const processInput = (input: string): void => {
  * @function Bin2Dec
  * @returns {JSX}
  * @since 1.0.0
- * @version 2.0.0
+ * @version 3.0.0
  */
 export const Bin2Dec = (): JSX => {
 	return (
@@ -86,7 +86,7 @@ export const Bin2Dec = (): JSX => {
 			<div id="userinput">
 				<h1 className="title">Binary Input</h1>
 				<textarea
-					id="input"
+					id="binaryinput"
 					data-testid="userinput"
 					onChange={(e: InputEvent) => processInput(e.target.value)}
 				></textarea>
