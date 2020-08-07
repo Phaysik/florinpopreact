@@ -3,11 +3,11 @@
  * @author Matthew Moore
  * @module Router
  * @since 1.0.0
- * @version 3.0.0
+ * @version 3.0.5
  */
 
 import React from 'react';
-import { BrowserRouter as Routes, Switch, Route } from 'react-router-dom';
+import { HashRouter as Routes, Switch, Route } from 'react-router-dom';
 import { Bin2Dec } from '../Bin2Dec/Bin2Dec';
 import { BorderRadius } from '../BorderRadius/BorderRadius';
 import { ProjectDisplay } from '../ProjectDisplay/ProjectDisplay';
