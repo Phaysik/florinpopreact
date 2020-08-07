@@ -1,9 +1,9 @@
 /**
  * @file Change the values of border radius in real time
  * @author Matthew Moore
- * @module Bin2Dec
+ * @module BorderRadius
  * @since 2.0.0
- * @version 2.0.5
+ * @version 3.0.1
  */
 
 import React from 'react';
