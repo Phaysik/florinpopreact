@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/florinpopreact/static/css/main.946c7895.chunk.css",
-    "main.js": "/florinpopreact/static/js/main.7598d225.chunk.js",
-    "main.js.map": "/florinpopreact/static/js/main.7598d225.chunk.js.map",
+    "main.js": "/florinpopreact/static/js/main.cedeaf8b.chunk.js",
+    "main.js.map": "/florinpopreact/static/js/main.cedeaf8b.chunk.js.map",
     "runtime-main.js": "/florinpopreact/static/js/runtime-main.0ed2c019.js",
     "runtime-main.js.map": "/florinpopreact/static/js/runtime-main.0ed2c019.js.map",
     "static/js/2.31705f4a.chunk.js": "/florinpopreact/static/js/2.31705f4a.chunk.js",
     "static/js/2.31705f4a.chunk.js.map": "/florinpopreact/static/js/2.31705f4a.chunk.js.map",
     "index.html": "/florinpopreact/index.html",
-    "precache-manifest.1bcde3caa79a5c0994ec0a49e02d781f.js": "/florinpopreact/precache-manifest.1bcde3caa79a5c0994ec0a49e02d781f.js",
+    "precache-manifest.791362a05c11a1a19d5b0348bf61645e.js": "/florinpopreact/precache-manifest.791362a05c11a1a19d5b0348bf61645e.js",
     "service-worker.js": "/florinpopreact/service-worker.js",
     "static/css/main.946c7895.chunk.css.map": "/florinpopreact/static/css/main.946c7895.chunk.css.map",
     "static/js/2.31705f4a.chunk.js.LICENSE.txt": "/florinpopreact/static/js/2.31705f4a.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.0ed2c019.js",
     "static/js/2.31705f4a.chunk.js",
     "static/css/main.946c7895.chunk.css",
-    "static/js/main.7598d225.chunk.js"
+    "static/js/main.cedeaf8b.chunk.js"
   ]
 }
