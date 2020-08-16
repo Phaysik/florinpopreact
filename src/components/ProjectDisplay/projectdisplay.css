@@ -1,8 +1,7 @@
 #projectDisplay {
-    margin: 3rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 h1#displayTitle {
@@ -20,6 +19,8 @@ h1#displayTitle {
 .projectBox {
     height: 15rem;
     border: 1px solid black;
+    margin-left: 1rem;
+    margin-top: 1rem;
     color: #4c4040;
     padding: 1rem;
     text-align: center;
@@ -33,4 +34,26 @@ h1#displayTitle {
 .projectBox:hover {
     color: #869ef4;
     font-size: 2.1rem;
+}
+
+@media (max-width: 700px) {
+    .projectBox {
+        width: 20rem;
+    }
+
+    .projectBox img {
+        width: 300px;
+        height: 170px;
+    }
+}
+
+@media (max-width: 400px) {
+    .projectBox {
+        width: 12rem;
+    }
+
+    .projectBox img {
+        width: 190px;
+        height: 120px;
+    }
 }

@@ -24,6 +24,10 @@
     font-weight: bold;
 }
 
+#copy:focus {
+    outline: none;
+}
+
 #preview {
     grid-area: preview;
     height: 20rem;

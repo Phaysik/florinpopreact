@@ -2,7 +2,7 @@
  * @file Export shorthand types for long type expressions
  * @author Matthew Moore
  * @since 1.0.0
- * @version 3.0.0
+ * @version 4.0.0
  */
 
 /**
@@ -23,19 +23,43 @@ export type InputEvent = React.ChangeEvent<HTMLTextAreaElement>;
 
 /**
  * @desc Shorthand for React.ChangeEvent<HTMLInputElement>
- * @typedef {React.ChangeEvent<HTMLInputElement>} InputEvent
+ * @typedef {React.ChangeEvent<HTMLInputElement>} InputChange
  * @since 2.0.0
- * @version 2.0.0
+ * @version 4.0.0
  */
 export type InputChange = React.ChangeEvent<HTMLInputElement>;
 
 /**
  * @desc Shorthand for React.MouseEvent<HTMLButtonElement, MouseEvent>
- * @typedef {React.MouseEvent<HTMLButtonElement, MouseEvent>} InputEvent
+ * @typedef {React.MouseEvent<HTMLButtonElement, MouseEvent>} ButtonClick
  * @since 2.0.0
- * @version 2.0.0
+ * @version 4.0.0
  */
 export type ButtonClick = React.MouseEvent<HTMLButtonElement, MouseEvent>;
+
+/**
+ * @desc Shorthand for React.KeyboardEvent<HTMLButtonElement>
+ * @typedef {React.KeyboardEvent<HTMLButtonElement>} ButtonDown
+ * @since 4.0.0
+ * @version 4.0.0
+ */
+export type ButtonDown = React.KeyboardEvent<HTMLButtonElement>;
+
+/**
+ * @desc Shorthand for React.Dispatch<React.SetStateAction<string>>
+ * @typedef {React.Dispatch<React.SetStateAction<string>>} StringState
+ * @since 4.0.0
+ * @version 4.0.0
+ */
+export type StringState = React.Dispatch<React.SetStateAction<string>>;
+
+/**
+ * @desc Shorthand for React.Dispatch<React.SetStateAction<boolean>>
+ * @typedef {React.Dispatch<React.SetStateAction<boolean>>} BoolState
+ * @since 4.0.0
+ * @version 4.0.0
+ */
+export type BoolState = React.Dispatch<React.SetStateAction<boolean>>;
 
 /**
  * @desc A singular project
