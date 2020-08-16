@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "85ae507323d9afddcb029eb5b7d61cfe",
+    "revision": "9158968a90dcb22704cb59bd478d2768",
     "url": "/florinpopreact/index.html"
   },
   {
-    "revision": "58f2e265e35c83a533f5",
+    "revision": "ef8ceda09736d46edce3",
     "url": "/florinpopreact/static/css/main.becdc216.chunk.css"
   },
   {
-    "revision": "3b94feddd3e0dbf14a0e",
-    "url": "/florinpopreact/static/js/2.e4b2e7d5.chunk.js"
+    "revision": "a1d4540edfd6b3d7d03e",
+    "url": "/florinpopreact/static/js/2.566725c1.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/florinpopreact/static/js/2.e4b2e7d5.chunk.js.LICENSE.txt"
+    "url": "/florinpopreact/static/js/2.566725c1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "58f2e265e35c83a533f5",
-    "url": "/florinpopreact/static/js/main.a076d6da.chunk.js"
+    "revision": "ef8ceda09736d46edce3",
+    "url": "/florinpopreact/static/js/main.b5acb5e6.chunk.js"
   },
   {
     "revision": "a0d9f466776822903532",
