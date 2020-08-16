@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "874b3417708c9e83223e85cd670347d3",
+    "revision": "85ae507323d9afddcb029eb5b7d61cfe",
     "url": "/florinpopreact/index.html"
   },
   {
-    "revision": "18eef381271085161d4e",
-    "url": "/florinpopreact/static/css/main.946c7895.chunk.css"
+    "revision": "58f2e265e35c83a533f5",
+    "url": "/florinpopreact/static/css/main.becdc216.chunk.css"
   },
   {
-    "revision": "73bb8dd75b2997ab73e5",
-    "url": "/florinpopreact/static/js/2.31705f4a.chunk.js"
+    "revision": "3b94feddd3e0dbf14a0e",
+    "url": "/florinpopreact/static/js/2.e4b2e7d5.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/florinpopreact/static/js/2.31705f4a.chunk.js.LICENSE.txt"
+    "url": "/florinpopreact/static/js/2.e4b2e7d5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "18eef381271085161d4e",
-    "url": "/florinpopreact/static/js/main.cedeaf8b.chunk.js"
+    "revision": "58f2e265e35c83a533f5",
+    "url": "/florinpopreact/static/js/main.a076d6da.chunk.js"
   },
   {
     "revision": "a0d9f466776822903532",
@@ -30,5 +30,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c408ea4b538aadfd3ecedd6678893b05",
     "url": "/florinpopreact/static/media/borderradius.c408ea4b.png"
+  },
+  {
+    "revision": "c52d76df8c36e7fa45e33a9e3dcd99ac",
+    "url": "/florinpopreact/static/media/calculator.c52d76df.png"
   }
 ]);
