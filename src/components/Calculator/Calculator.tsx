@@ -2,11 +2,11 @@
  * @file Real time calculator
  * @author Matthew Moore
  * @module Calculator
- * @since 4.0.0
- * @version 4.0.0
+ * @since 4.5.0
+ * @version 4.5.0
  */
 
-// TODO Test the project you monkey
+// TODO Test the project and make sure it's responsive you monkey
 
 import React, { useEffect, useState } from 'react';
 import {
@@ -37,17 +37,28 @@ import {
  * @param {StringState} setInput - Set the input to a certain value
  * @param {BoolState} setAllClear - Whether AC or C should be displayed
  * @param {number} index - The number to add to the input
+ * @param {boolean} mathOp - Whether a mathematical operation is happening
+ * @param {BoolState} setMathOp - Set whether a mathematical operation is happening
  * @returns {void}
  * @since 4.0.0
- * @version 4.0.0
+ * @version 4.5.0
  */
 const valueButton = (
 	input: string,
 	setInput: StringState,
 	setAllClear: BoolState,
-	index: number
+	index: number,
+	mathOp: boolean,
+	setMathOp: BoolState
 ): void => {
-	setInput(`${input}${index.toString()}`);
+	setInput(
+		mathOp
+			? index.toString()
+			: input === '0'
+			? index.toString()
+			: `${input}${index.toString()}`
+	);
+	setMathOp(false);
 	setAllClear(false);
 };
 
@@ -58,16 +69,25 @@ const valueButton = (
  * @param {string} input - The current input
  * @param {StringState} setInput - Set the input to a certain value
  * @param {BoolState} setAllClear - Whether AC or C should be displayed
+ * @param {boolean} mathOp - Whether a mathematical operation is happening
+ * @param {BoolState} setMathOp - Set whether a mathematical operation is happening
  * @returns {void}
  * @since 4.0.0
- * @version 4.0.0
+ * @version 4.5.0
  */
 const valuePeriod = (
 	input: string,
 	setInput: StringState,
-	setAllClear: BoolState
+	setAllClear: BoolState,
+	mathOp: boolean,
+	setMathOp: BoolState
 ): void => {
-	setInput(input.includes('.') ? input : `${input}.`);
+	setInput(
+		mathOp || input === '0' ? '.' : input.includes('.') ? input : `${input}.`
+	);
+
+	setMathOp(false);
+
 	setAllClear(false);
 };
 
@@ -79,30 +99,52 @@ const valuePeriod = (
  * @param {StringState} setInput - Set the input to a certain value
  * @param {string} result - The current result
  * @param {StringState} setResult - Set the result to a certain value
+ * @param {boolean} mathCall - Whether a mathematical operation is happening
  * @returns {void}
  * @since 4.0.0
- * @version 4.0.0
+ * @version 4.5.0
  */
 const valueEquals = (
 	input: string,
 	setInput: StringState,
 	result: string,
-	setResult: StringState
+	setResult: StringState,
+	mathCall: boolean = false
 ): void => {
-	let leftNumber: number = Number(result.split(' ')[0]),
-		rightNumber: number = Number(input);
+	let leftNumber: number = 0,
+		rightNumber: number = 0,
+		operation: string = '',
+		total: number = Number(input !== '.' ? input : '0'),
+		loopIncrement: number = 3;
 
-	if (result.includes('÷')) {
-		setInput((leftNumber / rightNumber).toString());
-	} else if (result.includes('×')) {
-		setInput((leftNumber * rightNumber).toString());
-	} else if (result.includes('-') && result[0] !== '-') {
-		setInput((leftNumber - rightNumber).toString());
-	} else if (result.includes('+')) {
-		setInput((leftNumber + rightNumber).toString());
+	const res: string[] = result
+		.split(' ')
+		.concat([input])
+		.filter((val: string) => val !== '' && input !== '.');
+
+	if (!res.includes('=')) {
+		for (let i: number = 0; i < res.length - 1; i += loopIncrement) {
+			if (i === 0) {
+				leftNumber = Number(res[i]);
+				operation = res[i + 1];
+				rightNumber = Number(res[i + 2]);
+			} else {
+				leftNumber = total;
+				operation = res[i];
+				rightNumber = Number(res[i + 1]);
+				loopIncrement -= loopIncrement === 3 ? 1 : 0;
+			}
+
+			if (operation === '÷') total = leftNumber / rightNumber;
+			else if (operation === '×') total = leftNumber * rightNumber;
+			else if (operation === '-') total = leftNumber - rightNumber;
+			else total = leftNumber + rightNumber;
+		}
+
+		setInput(total.toString());
+
+		if (!mathCall && input !== '.') setResult(`${result} ${input} = `);
 	}
-
-	setResult(`${result} ${input} = `);
 };
 
 /**
@@ -115,9 +157,10 @@ const valueEquals = (
  * @param {StringState} setResult - Set the result to a certain value
  * @param {BoolState} setAllClear - Whether AC or C should be displayed
  * @param {string} operation - Mathematical operation to do
+ * @param {BoolState} setMathOp - Set whether a mathematical operation is happening
  * @returns {void}
  * @since 4.0.0
- * @version 4.0.0
+ * @version 4.5.0
  */
 const valueMath = (
 	input: string,
@@ -125,15 +168,23 @@ const valueMath = (
 	result: string,
 	setResult: StringState,
 	setAllClear: BoolState,
-	operation: string
+	operation: string,
+	setMathOp: BoolState
 ): void => {
-	if (input.length > 0) {
-		setResult(`${input} ${operation} `);
-	} else {
-		setResult(`${result.split(' ')[0]} ${operation} `);
-	}
+	setResult(
+		`${result.substring(result.indexOf('=') + 1) + input} ${operation} `
+	);
 
-	setInput('');
+	setMathOp(true);
+
+	valueEquals(
+		input.substring(0, input.length),
+		setInput,
+		result,
+		setResult,
+		true
+	);
+
 	setAllClear(true);
 };
 
@@ -144,28 +195,37 @@ const valueMath = (
  * @param {string} input - The current input
  * @param {StringState} setInput - Set the input to a certain value
  * @param {BoolState} setAllClear - Whether AC or C should be displayed
+ * @param {boolean} mathOp - Whether a mathematical operation is happening
+ * @param {BoolState} setMathOp - Set whether a mathematical operation is happening
  * @returns {void}
  * @since 4.0.0
- * @version 4.0.0
+ * @version 4.5.0
  */
 const valueBackspace = (
 	input: string,
 	setInput: StringState,
-	setAllClear: BoolState
+	setAllClear: BoolState,
+	mathOp: boolean,
+	setMathOp: BoolState
 ): void => {
 	setInput(
-		input[0] === '-' && input.length > 2
+		mathOp
+			? '0'
+			: input[0] === '-' && input.length > 2
 			? input.substring(0, input.length - 1)
 			: input[0] === '-'
-			? ''
+			? '0'
+			: input.substring(0, input.length - 1).length === 0
+			? '0'
 			: input.substring(0, input.length - 1)
 	);
+
+	setMathOp(false);
+
 	setAllClear(
 		input[0] === '-' && input.length > 0
 			? input.length - 2 === 0
-			: input.length > 0
-			? input.length - 1 === 0
-			: input.length === 0
+			: input.length - 1 === 0
 	);
 };
 
@@ -178,11 +238,12 @@ const valueBackspace = (
  * @param {StringState} setResult - Set the result to a certain value
  * @param {string} input - The current input
  * @param {StringState} setInput - Set the input to a certain value
- * @param {string} allClear - If AC or C is displayed
  * @param {BoolState} setAllClear - Whether AC or C should be displayed
+ * @param {boolean} mathOp - Whether a mathematical operation is happening
+ * @param {BoolState} setMathOp - Set whether a mathematical operation is happening
  * @returns {void}
  * @since 4.0.0
- * @version 4.0.0
+ * @version 4.5.0
  */
 const processKey = (
 	key: string,
@@ -190,8 +251,9 @@ const processKey = (
 	setResult: StringState,
 	input: string,
 	setInput: StringState,
-	allClear: boolean,
-	setAllClear: BoolState
+	setAllClear: BoolState,
+	mathOp: boolean,
+	setMathOp: BoolState
 ): void => {
 	const allowed: string[] = [
 		'0',
@@ -215,29 +277,68 @@ const processKey = (
 
 	if (allowed.includes(key)) {
 		if (key.match(/[0-9]/))
-			valueButton(input, setInput, setAllClear, Number(allowed.indexOf(key)));
+			valueButton(
+				input,
+				setInput,
+				setAllClear,
+				Number(allowed.indexOf(key)),
+				mathOp,
+				setMathOp
+			);
 		else {
 			switch (key) {
 				case '.':
-					valuePeriod(input, setInput, setAllClear);
+					valuePeriod(input, setInput, setAllClear, mathOp, setMathOp);
 					break;
 				case 'Enter':
 					valueEquals(input, setInput, result, setResult);
 					break;
 				case '+':
-					valueMath(input, setInput, result, setResult, setAllClear, '+');
+					valueMath(
+						input,
+						setInput,
+						result,
+						setResult,
+						setAllClear,
+						'+',
+						setMathOp
+					);
 					break;
 				case '-':
-					valueMath(input, setInput, result, setResult, setAllClear, '-');
+					valueMath(
+						input,
+						setInput,
+						result,
+						setResult,
+						setAllClear,
+						'-',
+						setMathOp
+					);
 					break;
 				case '*':
-					valueMath(input, setInput, result, setResult, setAllClear, '×');
+					valueMath(
+						input,
+						setInput,
+						result,
+						setResult,
+						setAllClear,
+						'×',
+						setMathOp
+					);
 					break;
 				case '/':
-					valueMath(input, setInput, result, setResult, setAllClear, '÷');
+					valueMath(
+						input,
+						setInput,
+						result,
+						setResult,
+						setAllClear,
+						'÷',
+						setMathOp
+					);
 					break;
 				case 'Backspace':
-					valueBackspace(input, setInput, setAllClear);
+					valueBackspace(input, setInput, setAllClear, mathOp, setMathOp);
 					break;
 			}
 		}
@@ -250,11 +351,12 @@ const processKey = (
  * @function Calculator
  * @returns {JSX}
  * @since 4.0.0
- * @version 4.0.0
+ * @version 4.5.0
  */
 export const Calculator = (): JSX => {
 	const [result, setResult] = useState('');
-	const [input, setInput] = useState('');
+	const [mathOp, setMathOp] = useState(false);
+	const [input, setInput] = useState('0');
 	const [allClear, setAllClear] = useState(true);
 
 	useEffect(() => {
@@ -265,8 +367,9 @@ export const Calculator = (): JSX => {
 				setResult,
 				input,
 				setInput,
-				allClear,
-				setAllClear
+				setAllClear,
+				mathOp,
+				setMathOp
 			);
 
 		return function cleanup() {
@@ -296,20 +399,29 @@ export const Calculator = (): JSX => {
 			<Home />
 			<Helmet title="Calculator" />
 			<div id="calculatorGrid">
-				<div id="calculatorInput" className="whiteColor operations">
-					{input}
+				<div
+					id="calculatorOutput"
+					className="whiteColor operations"
+					data-testid="calculatorOutput"
+				>
+					{result}
 				</div>
 
-				<div id="calculatorOutput" className="whiteColor operations">
-					{result}
+				<div
+					id="calculatorInput"
+					className="whiteColor operations"
+					data-testid="calculatorInput"
+				>
+					{input}
 				</div>
 
 				<button
 					id="clear"
 					className="whiteColor topRow"
+					data-testid="clear"
 					onClick={(e: ButtonClick) => {
 						setAllClear(true);
-						setInput('');
+						setInput('0');
 						setResult(allClear ? '' : result);
 					}}
 					onKeyDown={(e: ButtonDown) => {
@@ -320,10 +432,10 @@ export const Calculator = (): JSX => {
 				>
 					{allClear ? 'AC' : 'C'}
 				</button>
-
 				<button
 					id="sign"
 					className="whiteColor topRow"
+					data-testid="sign"
 					onClick={(e: ButtonClick) =>
 						setInput(input[0] === '-' ? input.substring(1) : `-${input}`)
 					}
@@ -335,12 +447,20 @@ export const Calculator = (): JSX => {
 				>
 					+/-
 				</button>
-
 				<button
 					id="division"
 					className="topRow"
+					data-testid="division"
 					onClick={(e: ButtonClick) =>
-						valueMath(input, setInput, result, setResult, setAllClear, '÷')
+						valueMath(
+							input,
+							setInput,
+							result,
+							setResult,
+							setAllClear,
+							'÷',
+							setMathOp
+						)
 					}
 					onKeyDown={(e: ButtonDown) => {
 						if (e.key === 'Enter') {
@@ -350,12 +470,12 @@ export const Calculator = (): JSX => {
 				>
 					<FontAwesomeIcon className="whiteColor topRow" icon={faDivide} />
 				</button>
-
 				<button
 					id="backspace"
 					className="leftSide"
+					data-testid="backspace"
 					onClick={(e: ButtonClick) =>
-						valueBackspace(input, setInput, setAllClear)
+						valueBackspace(input, setInput, setAllClear, mathOp, setMathOp)
 					}
 					onKeyDown={(e: ButtonDown) => {
 						if (e.key === 'Enter') {
@@ -365,12 +485,20 @@ export const Calculator = (): JSX => {
 				>
 					<FontAwesomeIcon className="whiteColor leftSide" icon={faBackspace} />
 				</button>
-
 				<button
 					id="mult"
 					className="leftSide"
+					data-testid="mult"
 					onClick={(e: ButtonClick) =>
-						valueMath(input, setInput, result, setResult, setAllClear, '×')
+						valueMath(
+							input,
+							setInput,
+							result,
+							setResult,
+							setAllClear,
+							'×',
+							setMathOp
+						)
 					}
 					onKeyDown={(e: ButtonDown) => {
 						if (e.key === 'Enter') {
@@ -380,12 +508,20 @@ export const Calculator = (): JSX => {
 				>
 					<FontAwesomeIcon className="whiteColor leftSide" icon={faTimes} />
 				</button>
-
 				<button
 					id="minus"
 					className="leftSide"
+					data-testid="minus"
 					onClick={(e: ButtonClick) =>
-						valueMath(input, setInput, result, setResult, setAllClear, '-')
+						valueMath(
+							input,
+							setInput,
+							result,
+							setResult,
+							setAllClear,
+							'-',
+							setMathOp
+						)
 					}
 					onKeyDown={(e: ButtonDown) => {
 						if (e.key === 'Enter') {
@@ -395,12 +531,20 @@ export const Calculator = (): JSX => {
 				>
 					<FontAwesomeIcon className="whiteColor leftSide" icon={faMinus} />
 				</button>
-
 				<button
 					id="plus"
 					className="leftSide"
+					data-testid="plus"
 					onClick={(e: ButtonClick) =>
-						valueMath(input, setInput, result, setResult, setAllClear, '+')
+						valueMath(
+							input,
+							setInput,
+							result,
+							setResult,
+							setAllClear,
+							'+',
+							setMathOp
+						)
 					}
 					onKeyDown={(e: ButtonDown) => {
 						if (e.key === 'Enter') {
@@ -410,10 +554,10 @@ export const Calculator = (): JSX => {
 				>
 					<FontAwesomeIcon className="whiteColor leftSide" icon={faPlus} />
 				</button>
-
 				<button
 					id="equals"
 					className="leftSide"
+					data-testid="equals"
 					onClick={(e: ButtonClick) =>
 						valueEquals(input, setInput, result, setResult)
 					}
@@ -425,12 +569,12 @@ export const Calculator = (): JSX => {
 				>
 					<FontAwesomeIcon className="whiteColor leftSide" icon={faEquals} />
 				</button>
-
 				<button
 					id="period"
 					className="whiteColor numberPeriod"
+					data-testid="period"
 					onClick={(e: ButtonClick) =>
-						valuePeriod(input, setInput, setAllClear)
+						valuePeriod(input, setInput, setAllClear, mathOp, setMathOp)
 					}
 					onKeyDown={(e: ButtonDown) => {
 						if (e.key === 'Enter') {
@@ -440,15 +584,22 @@ export const Calculator = (): JSX => {
 				>
 					.
 				</button>
-
 				{Array.from({ length: 10 }, (v: undefined, i: number) => i).map(
 					(value: number, index: number) => (
 						<button
-							className="whiteColor numberPeriod"
-							key={index}
 							id={nums[index]}
+							className="whiteColor numberPeriod"
+							data-testid={nums[index]}
+							key={index}
 							onClick={(e: ButtonClick) =>
-								valueButton(input, setInput, setAllClear, index)
+								valueButton(
+									input,
+									setInput,
+									setAllClear,
+									index,
+									mathOp,
+									setMathOp
+								)
 							}
 							onKeyDown={(e: ButtonDown) => {
 								if (e.key === 'Enter') {
