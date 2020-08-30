@@ -9,7 +9,7 @@
 import React from 'react';
 import { Helmet } from '../Helmet/Helmet';
 import { Home } from '../Home/Home';
-import { JSX, InputEvent } from '../../types/types';
+import { JSX, TextAreaChange } from '../../types/types';
 import './bin2dec.css';
 
 /**
@@ -88,7 +88,7 @@ export const Bin2Dec = (): JSX => {
 				<textarea
 					id="binaryinput"
 					data-testid="userinput"
-					onChange={(e: InputEvent) => processInput(e.target.value)}
+					onChange={(e: TextAreaChange) => processInput(e.target.value)}
 				></textarea>
 			</div>
 

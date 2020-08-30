@@ -2,7 +2,7 @@
  * @file Export shorthand types for long type expressions
  * @author Matthew Moore
  * @since 1.0.0
- * @version 4.0.0
+ * @version 5.0.0
  */
 
 /**
@@ -15,11 +15,11 @@ export type JSX = JSX.Element;
 
 /**
  * @desc Shorthand for React.ChangeEvent<HTMLTextAreaElement>
- * @typedef {React.ChangeEvent<HTMLTextAreaElement>} InputEvent
+ * @typedef {React.ChangeEvent<HTMLTextAreaElement>} TextAreaChange
  * @since 1.0.0
- * @version 1.0.0
+ * @version 5.0.0
  */
-export type InputEvent = React.ChangeEvent<HTMLTextAreaElement>;
+export type TextAreaChange = React.ChangeEvent<HTMLTextAreaElement>;
 
 /**
  * @desc Shorthand for React.ChangeEvent<HTMLInputElement>

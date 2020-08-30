@@ -3,10 +3,8 @@
  * @author Matthew Moore
  * @module Calculator
  * @since 4.5.0
- * @version 4.5.0
+ * @version 5.0.0
  */
-
-// TODO Test the project and make sure it's responsive you monkey
 
 import React, { useEffect, useState } from 'react';
 import {

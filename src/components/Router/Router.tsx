@@ -3,7 +3,7 @@
  * @author Matthew Moore
  * @module Router
  * @since 1.0.0
- * @version 4.0.0
+ * @version 5.0.0
  */
 
 import React from 'react';
@@ -12,6 +12,7 @@ import { Bin2Dec } from '../Bin2Dec/Bin2Dec';
 import { BorderRadius } from '../BorderRadius/BorderRadius';
 import { ProjectDisplay } from '../ProjectDisplay/ProjectDisplay';
 import { Calculator } from '../Calculator/Calculator';
+import { ChristmasLights } from '../ChristmasLights/ChristmasLights';
 import { JSX } from '../../types/types';
 
 /**
@@ -20,7 +21,7 @@ import { JSX } from '../../types/types';
  * @function Router
  * @returns {JSX}
  * @since 1.0.0
- * @version 4.0.0
+ * @version 5.0.0
  */
 export const Router = (): JSX => {
 	return (
@@ -40,6 +41,10 @@ export const Router = (): JSX => {
 
 				<Route path="/calculator">
 					<Calculator />
+				</Route>
+
+				<Route path="/christmaslights">
+					<ChristmasLights />
 				</Route>
 			</Switch>
 		</Routes>

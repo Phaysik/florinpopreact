@@ -2,6 +2,7 @@ import { projects } from '../../types/types';
 import bin2dec from '../../images/bin2dec.png';
 import borderradius from '../../images/borderradius.png';
 import calculator from '../../images/calculator.png';
+import christmaslights from '../../images/christmaslights.png';
 
 export const projectData: projects = {
 	projects: [
@@ -19,6 +20,11 @@ export const projectData: projects = {
 			location: '/calculator',
 			title: 'Calculator',
 			image: calculator,
+		},
+		{
+			location: '/christmaslights',
+			title: 'Christmas Lights',
+			image: christmaslights,
 		},
 	],
 };

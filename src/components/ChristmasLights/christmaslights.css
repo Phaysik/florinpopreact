@@ -1,0 +1,144 @@
+#christmaslights {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 'home';
+    margin: 2rem;
+}
+
+.lights {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.lights .lightClick {
+    margin: 1.4rem auto;
+    height: 5rem;
+    width: 4.5rem;
+    font-size: 1.2rem;
+}
+
+.lights .lightClick input {
+    height: inherit;
+    border: none;
+    width: inherit;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.lights .lightClick input:focus {
+    outline: none;
+}
+
+input::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+}
+
+.lights .box {
+    border: 1px solid #443549;
+    width: 30%;
+    margin: 0 auto;
+    height: 1.3rem;
+    margin-bottom: -.3rem;
+    position: relative;
+    z-index: 2;
+    background-color: #443549;
+}
+
+.lighttop:before {
+    position: absolute;
+    content: '';
+    height: 1.3rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+    background: rgb(68, 53, 73);
+    border-bottom: 2px solid #443549;
+}
+
+.lighttop:after {
+    position: absolute;
+    content: "";
+    position: absolute;
+    width: 16rem;
+    height: 20.6666666667px;
+    left: 1.1rem;
+    border-bottom: solid #222 2px;
+    border-radius: 50%;
+}
+
+@media (max-width: 1500px) {
+    .lighttop:after {
+        width: 12rem;
+    }
+}
+
+@media (max-width: 1100px) {
+    .lighttop:after {
+        width: 8rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .lighttop:after {
+        width: 6rem;
+        height: 16.6666666667px;
+    }
+}
+
+@media (max-width: 500px) {
+    .lighttop:after {
+        width: 4rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .lighttop:after {
+        width: 5rem;
+    }
+}
+
+#lightManip {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+}
+
+#lightManip button {
+    margin: .5rem .5rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    height: 5.5rem;
+    width: 5.5rem;
+    border: 1px solid black;
+    transition-property: background-color, font-size;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
+}
+
+#lightManip button:focus {
+    outline: none;
+}
+
+#lightManip button:hover {
+    background-color: #C9C9D9;
+    font-size: 1.2rem;
+}
+
+#lightManip #intensity,
+#lightManip #timeInterval {
+    border-radius: 5%;
+    margin: .5rem .5rem;
+    padding: .5rem;
+    font-size: 1.2rem;
+    border: 1px solid black;
+}
+
+#lightManip #intensity:focus,
+#lightManip #timeInterval {
+    outline: none;
+}
