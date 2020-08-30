@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/florinpopreact/static/css/main.becdc216.chunk.css",
-    "main.js": "/florinpopreact/static/js/main.b5acb5e6.chunk.js",
-    "main.js.map": "/florinpopreact/static/js/main.b5acb5e6.chunk.js.map",
+    "main.css": "/florinpopreact/static/css/main.0fe116cc.chunk.css",
+    "main.js": "/florinpopreact/static/js/main.28c2b88c.chunk.js",
+    "main.js.map": "/florinpopreact/static/js/main.28c2b88c.chunk.js.map",
     "runtime-main.js": "/florinpopreact/static/js/runtime-main.0ed2c019.js",
     "runtime-main.js.map": "/florinpopreact/static/js/runtime-main.0ed2c019.js.map",
-    "static/js/2.566725c1.chunk.js": "/florinpopreact/static/js/2.566725c1.chunk.js",
-    "static/js/2.566725c1.chunk.js.map": "/florinpopreact/static/js/2.566725c1.chunk.js.map",
+    "static/js/2.d83467fb.chunk.js": "/florinpopreact/static/js/2.d83467fb.chunk.js",
+    "static/js/2.d83467fb.chunk.js.map": "/florinpopreact/static/js/2.d83467fb.chunk.js.map",
     "index.html": "/florinpopreact/index.html",
-    "precache-manifest.2895b15481222663e1e03a9a61965ea8.js": "/florinpopreact/precache-manifest.2895b15481222663e1e03a9a61965ea8.js",
+    "precache-manifest.5b8824dbf856f28d4b1958eb6dfcf6ab.js": "/florinpopreact/precache-manifest.5b8824dbf856f28d4b1958eb6dfcf6ab.js",
     "service-worker.js": "/florinpopreact/service-worker.js",
-    "static/css/main.becdc216.chunk.css.map": "/florinpopreact/static/css/main.becdc216.chunk.css.map",
-    "static/js/2.566725c1.chunk.js.LICENSE.txt": "/florinpopreact/static/js/2.566725c1.chunk.js.LICENSE.txt",
+    "static/css/main.0fe116cc.chunk.css.map": "/florinpopreact/static/css/main.0fe116cc.chunk.css.map",
+    "static/js/2.d83467fb.chunk.js.LICENSE.txt": "/florinpopreact/static/js/2.d83467fb.chunk.js.LICENSE.txt",
     "static/media/bin2dec.png": "/florinpopreact/static/media/bin2dec.64ea8a25.png",
     "static/media/borderradius.png": "/florinpopreact/static/media/borderradius.c408ea4b.png",
-    "static/media/calculator.png": "/florinpopreact/static/media/calculator.c52d76df.png"
+    "static/media/calculator.png": "/florinpopreact/static/media/calculator.c52d76df.png",
+    "static/media/christmaslights.png": "/florinpopreact/static/media/christmaslights.e388bb81.png"
   },
   "entrypoints": [
     "static/js/runtime-main.0ed2c019.js",
-    "static/js/2.566725c1.chunk.js",
-    "static/css/main.becdc216.chunk.css",
-    "static/js/main.b5acb5e6.chunk.js"
+    "static/js/2.d83467fb.chunk.js",
+    "static/css/main.0fe116cc.chunk.css",
+    "static/js/main.28c2b88c.chunk.js"
   ]
 }
